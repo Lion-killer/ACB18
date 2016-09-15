@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by bilousyv on 13.09.2016.
  */
-public class task405 {
+public class Task405 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

@@ -5,7 +5,7 @@ import utils.ArrayUtils;
 /**
  * Created by bilousyv on 13.09.2016.
  */
-public class task401 {
+public class Task401 {
     public static void main(String[] args) {
 
         int[] nums = ArrayUtils.createRandomArray(10, 1, 100);

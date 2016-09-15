@@ -61,7 +61,7 @@ public class ArrayUtils {
         return array;
     }
 
-    private static boolean odd(int value) {
+    private static boolean isOdd(int value) {
         return value % 2 == 0;
     }
 
@@ -74,7 +74,7 @@ public class ArrayUtils {
 
             do {
                 randomValue = getRandomValue(min, max);
-            } while (odd(i) == odd(randomValue));
+            } while (isOdd(i) == isOdd(randomValue));
 
             array[i] = randomValue;
         }
@@ -170,7 +170,7 @@ public class ArrayUtils {
         return result;
     }
 
-    public static int getAverage(int[] nums) {
+    public static int getSum(int[] nums) {
 
         int sum = 0;
 
@@ -183,7 +183,7 @@ public class ArrayUtils {
 
     public static void changeMaxAndMin(int[] nums) {
 
-        int min, minpos = 0, max, maxpos = 0, tmp;
+        int min, minpos = 0, max, maxpos = 0;
 
         min = nums[0];
         max = nums[0];
@@ -199,9 +199,7 @@ public class ArrayUtils {
             }
         }
 
-        tmp = nums[minpos];
-        nums[minpos] = nums[maxpos];
-        nums[maxpos] = tmp;
+        swap(nums, minpos, maxpos);
 
     }
 
@@ -236,8 +234,8 @@ public class ArrayUtils {
         copyArrayData(nums, nums1, 0, middle - 1);
         copyArrayData(nums, nums2, nums.length - middle, nums.length - 1);
 
-        int averageSum1 = getAverage(nums1);
-        int averageSum2 = getAverage(nums2);
+        int averageSum1 = getSum(nums1) / nums1.length;
+        int averageSum2 = getSum(nums2) / nums2.length;
 
         if (averageSum1 > averageSum2)
             return nums1;
@@ -247,8 +245,11 @@ public class ArrayUtils {
     }
 
     public static int[] sumArrayData(int[] nums1, int[] nums2) {
-        int[] result = new int[nums1.length];
-        for (int i = 0; i < result.length; i++) {
+
+        int length = Math.min(nums1.length, nums2.length);
+
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
             result[i] = nums1[i] + nums2[i];
         }
         return result;
@@ -262,5 +263,25 @@ public class ArrayUtils {
 
         return result;
 
+    }
+
+    public static int countOfOddElements(int[] nums) {
+        int count = 0;
+        for (int number : nums)
+            if (isOdd(number))
+                count++;
+
+        return count;
+    }
+
+    public static int[] getFibonacciArray(int number) {
+
+        int[] fibonacciArray = new int[number];
+
+        for (int i = 0; i < number; i++) {
+            fibonacciArray[i] = (i == 0 || i == 1) ? 1 : fibonacciArray[i - 2] + fibonacciArray[i - 1];
+        }
+
+        return fibonacciArray;
     }
 }

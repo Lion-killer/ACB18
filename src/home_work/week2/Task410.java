@@ -3,9 +3,9 @@ package home_work.week2;
 import utils.ArrayUtils;
 
 /**
- * Created by bilousyv on 13.09.2016.
+ * Created by bilousyv on 14.09.2016.
  */
-public class task403 {
+public class Task410 {
     public static void main(String[] args) {
 
         int[] nums = ArrayUtils.createArray(10);
@@ -13,9 +13,9 @@ public class task403 {
         System.out.println("Исходный массив:");
         ArrayUtils.printArray(nums);
 
-        ArrayUtils.changeMaxAndMin(nums);
+        int[] res = ArrayUtils.splitArray(nums, 2, 7);
         System.out.println("Результирующий массив:");
-        ArrayUtils.printArray(nums);
+        ArrayUtils.printArray(res);
 
     }
 }
