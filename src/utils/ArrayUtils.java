@@ -82,7 +82,7 @@ public class ArrayUtils {
         return array;
     }
 
-    private static int getRandomValue(int min, int max) {
+    public static int getRandomValue(int min, int max) {
         return (int) (min + Math.random() * (max - min));
     }
 
