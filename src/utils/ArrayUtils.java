@@ -82,7 +82,7 @@ public class ArrayUtils {
         return array;
     }
 
-    private static int getRandomValue(int min, int max) {
+    public static int getRandomValue(int min, int max) {
         return (int) (min + Math.random() * (max - min));
     }
 
@@ -126,6 +126,26 @@ public class ArrayUtils {
         return arrayAsString + "]";
     }
 
+    public static String arrayToStringUsingBuilder(int[] array) {
+
+        if (array == null) return null;
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("[");
+
+
+        for (int i = 0; i < array.length - 1; i++) {
+            sb.append(array[i]).append(", ");
+        }
+
+        if (array.length > 0)
+            sb.append(array[array.length - 1]);
+
+        sb.append("]");
+
+        return sb.toString();
+    }
 
     public static String arrayToString(String[] array) {
 
