@@ -18,9 +18,7 @@ public class Task3 {
         System.out.println("Enter text: ");
         text = sc.nextLine();
 
-        String[] words = text.split(" ");
-
-        String resultStr = StringUtils.replaceAll(words, substring, replacement);
+        String resultStr = StringUtils.replaceAll(text, substring, replacement);
 
         System.out.printf("Result: \n %s", resultStr);
 

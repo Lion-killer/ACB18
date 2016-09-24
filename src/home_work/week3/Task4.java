@@ -21,9 +21,7 @@ public class Task4 {
         System.out.println("Enter text: ");
         text = sc.nextLine();
 
-        String[] words = text.split(" ");
-
-        String resultStr = utils.StringUtils.allWordsToUpperTitle(words);
+        String resultStr = utils.StringUtils.allWordsToUpperTitle(text);
         System.out.printf("Result: %s", resultStr);
 
     }

@@ -18,10 +18,8 @@ public class Task2 {
         System.out.println("Enter text: ");
         text = sc.nextLine();
 
-        String[] words = text.split(" ");
-
-        String maxWord = StringUtils.getMaxWord(words);
-        String minWord = StringUtils.getMinWord(words);
+        String maxWord = StringUtils.getMaxWord(text);
+        String minWord = StringUtils.getMinWord(text);
 
         System.out.printf("Min word: %s, max word: %s", minWord, maxWord);
 

@@ -30,8 +30,11 @@ public class StringUtils {
         return sb.toString();
     }
 
-    public static String getMaxWord(String[] words) {
+    public static String getMaxWord(String text) {
+
+        String[] words = text.split(" ");
         int pos = 0, max;
+
         if (words == null || words.length == 0) return "";
 
         max = words[0].length();
@@ -44,7 +47,10 @@ public class StringUtils {
         return words[pos];
     }
 
-    public static String getMinWord(String[] words) {
+    public static String getMinWord(String text) {
+
+        String[] words = text.split(" ");
+
         int pos = 0, min;
         if (words == null || words.length == 0) return "";
 
@@ -73,7 +79,10 @@ public class StringUtils {
         return arrayAsString + "";
     }
 
-    public static String replaceAll(String[] words, String substring, String replacement) {
+    public static String replaceAll(String text, String substring, String replacement) {
+
+        String[] words = text.split(" ");
+
         for (int i = 0; i < words.length; i++) {
             if (words[i].contains(substring))
                 words[i] = replacement;
@@ -82,11 +91,34 @@ public class StringUtils {
         return arrayToString(words);
     }
 
-    public static String allWordsToUpperTitle(String[] words) {
+    public static String allWordsToUpperTitle(String text) {
+
+        String[] words = text.split(" ");
+
         for (int i = 0; i < words.length; i++) {
             words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
         }
 
         return arrayToString(words);
+    }
+
+
+
+    public static boolean isPalindrome(String text) {
+        String textWithoutPunctuation = removePunctuation(text).toLowerCase();
+        char[] array = textWithoutPunctuation.toCharArray();
+        for (int i = 0; i < array.length / 2; i++) {
+            if (array[i] != array[array.length - i - 1])
+                return false;
+        }
+        return true;
+    }
+
+    private static String removePunctuation(String text) {
+        String[] punktuation = {",", "-", "\\.", ":", ";", "!", "\\?", " "};
+        for (int i = 0; i < punktuation.length; i++) {
+            text = text.replaceAll(punktuation[i], "");
+        }
+        return text;
     }
 }
